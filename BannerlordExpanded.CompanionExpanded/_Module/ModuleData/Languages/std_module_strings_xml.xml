@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>
+		<!-- Base Dialogs -->
+		<string id="BECE_Dialog" text="I have something to talk you about." />
+		<string id="BECE_Dialog_Start" text="What is it?" />
+		<string id="BECE_Dialog_Back" text="Nevermind." />		
+	
+		<!-- Companion to family(son/daughter) -->
+		<string id="BECE_Dialog_CompanionToFamily_Start_male" text="You have done well to be worthy of my family's name. I want you to be my son." />
+		<string id="BECE_Dialog_CompanionToFamily_Start_female" text="You have done well to be worthy of my family's name. I want you to be my daughter." />
+		<string id="BECE_Dialog_CompanionToFamily_AreYouSure" text="I am honored that you think so highly of me. But are you sure I can earn your family's name?" />
+		<string id="BECE_Dialog_CompanionToFamily_AreYouSureReplyYes" text="Of course!" />
+		<string id="BECE_Dialog_CompanionToFamily_AreYouSureReplyNo" text="I will need to rethink about it." />
+		<string id="BECE_Dialog_CompanionToFamily_End" text="I will gladly join your family!" />
+		
+		<string id="Announcement_MoreHeroInteraction_CompanionToFamily" text="{HERO_NAME} has been made a noble and is now part of your family!" />
+
+		<!-- Companion to family(brother/sister) -->
+		<string id="BECE_Dialog_CompanionToSibling_Start_male" text="You have done well to be worthy of my family's name. I want you to be my brother." />
+		<string id="BECE_Dialog_CompanionToSibling_Start_female" text="You have done well to be worthy of my family's name. I want you to be my sister." />
+		<string id="BECE_Dialog_CompanionToSibling_AreYouSure" text="I am honored that you think so highly of me. But are you sure I can earn your family's name?" />
+		<string id="BECE_Dialog_CompanionToSibling_AreYouSureReplyYes" text="Of course!" />
+		<string id="BECE_Dialog_CompanionToSibling_AreYouSureReplyNo" text="I will need to rethink about it." />
+		<string id="BECE_Dialog_CompanionToSibling_End" text="I will gladly join your family!" />
+
+		<string id="Announcement_MoreHeroInteraction_CompanionToSibling" text="{HERO_NAME} has been made a noble and is now part of your family!" />
+		
+		<!-- Disown Children -->
+		<string id="BECE_Dialog_DisownChildToCompanion_Start" text="You are no longer worthy of the family's name!" />
+		<string id="BECE_Dialog_CompanionToFamily_Reply" text="W-what? I ask that you reconsider milord!" />
+		<string id="BECE_Dialog_DisownChildToCompanion_AreYouSureYes" text="I have already thought this through. You are not worthy to be my child!" />
+		<string id="BECE_Dialog_DisownChildToCompanion_AreYouSureNo" text="Calm down, I was only joking!" />
+		<string id="BECE_Dialog_CompanionToFamily_End" text="I see..." />
+		
+		<!-- Give Gifts -->
+		<string id="BECE_Dialog_Gift" text="I have prepared a gift for you!" />
+		<string id="BECE_Dialog_GiftResponse" text="Oh? What is it?" />
+		<string id="BECE_Dialog_GiftResponseSuccessful" text="Thank you!" />
+		<string id="BECE_Dialog_GiftResponseFailure" text="There was nothing..." />		
+		<string id="BECE_Dialog_GiftCooldown" text="You just gave {HERO_NAME} a gift. You will need to wait for {COOLDOWN_DAYS} days before giving another gift!" />
+		
+		<!-- Settings Text -->
+		<string id="BE_CE_Settings_Header_CompanionSpawning" text="Companion Spawning" />
+		<string id="BE_CE_Settings_maxCompanions" text="Maximum number of wanderers in town" />
+		<string id="BE_CE_Settings_maxCompanions_Desc" text="The maximum number of wanderers that can be in a town at once. Expect lag/temporary freezes if you set a high number." />
+		<string id="BE_CE_Settings_refresh" text="Refresh Wanderers" />
+		<string id="BE_CE_Settings_Refresh_ButtonContent" text="Press to refresh" />
+		<string id="BE_CE_Settings_Refresh_Desc" text="Removes all current unhired wanderers and spawn new ones. MAY CAUSE TEMPORARY FREEZE, NO NEED TO WORRY! :D" />
+		<string id="BE_CE_Settings_cleanup" text="Cleanup Wanderers [Uninstallation]" />
+		<string id="BE_CE_Settings_Cleanup_ButtonContent" text="Press to remove dead wanderers from game" />
+		<string id="BE_CE_Settings_Cleanup_Desc" text="Removes all dead wanderers from game." />
+		
+		
+		
+		<string id="BE_CE_Settings_Header_Gift" text="Gift Settings" />
+		<string id="BE_CE_Settings_GiftCooldown" text="Gift Cooldown (Days)" />
+		<string id="BE_CE_Settings_GiftCooldown_Desc" text="The minimum time interval (days) before you can give another gift to the same person." />
+		
+		
+		<string id="BE_CE_Settings_Header_Request" text="Wanderer Join Request" />
+		<string id="BE_CE_Settings_RequestInterval" text="Wanderer Request Cooldown (Days)" />
+		<string id="BE_CE_Settings_RequestInterval_Desc" text="The minimum time interval (days) before you can receive another request for a clan member to join." />
+		<string id="BE_CE_Settings_RequestChance" text="Chance of Wanderer Request per Clan Tier" />
+		<string id="BE_CE_Settings_RequestChance_Desc" text="The chance of receiving a request per tier. If your clan tier is 3, the chance of receiving a request is 3x of the value your provided." />
+		
+		
+		<string id="BE_CE_Settings_Header_CompanionsInTown" text="Companions will roam on Town Center" />
+		
+		
+		<string id="BE_CE_Settings_CompanionToFamily_Header" text="Companion To Family Conversations" />
+		<string id="BE_CE_Settings_CompanionToChild" text="Enable Companion To Son/Daughter Conversation" />
+		<string id="BE_CE_Settings_CompanionToSibling" text="Enable Companion To Sibling Conversation" />
+		<string id="BE_CE_Settings_DisownSon" text="Enable Disown Children Conversation" />
+	</strings>
+</base>
