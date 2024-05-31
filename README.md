@@ -1,4 +1,4 @@
-# BannerlordExpanded.SettlementInteractions
+# BannerlordExpanded.CompanionExpanded
 ![Logo](https://github.com/AxelCawe/BannerlordExpanded.CompanionExpanded/assets/119555523/b0dc4564-3ac2-4ce3-8914-9aa1ae707418)
 
 ## Project Descriptions & Downloads:
