@@ -81,7 +81,7 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
 
         // More Followers
         [SettingPropertyGroup("{=BE_CE_Settings_MoreFollowers_Header}More Followers", GroupOrder = 5)]
-        [SettingPropertyBool("{=BE_CE_Settings_CompanionToSibling}Enable More Followers Module", RequireRestart = true)]
+        [SettingPropertyBool("{=BE_CE_Settings_CompanionToSibling}Enable More Followers Module", IsToggle = true, RequireRestart = true)]
         public bool MoreFollowersActive { get; set; } = true;
         [SettingPropertyGroup("{=BE_CE_Settings_MoreFollowers_Header}More Followers", GroupOrder = 5)]
         [SettingPropertyInteger("{=BE_CE_Settings_MoreFollowers_NumOfFollowers}Number of Followers", 1, 1000, HintText = "{=BE_CE_Settings_MoreFollowers_NumOfFollowersDesc}Number of family members & companions that will follow you whenever you visit settlements.", RequireRestart = false)]
