@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem.Settlements.Locations;
 using TaleWorlds.CampaignSystem.Settlements;
 using BannerlordExpanded.CompanionExpanded.Settings;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
 {
     [HarmonyPatchCategory("CompanionSpawning")]
     [HarmonyPatch(typeof(CompanionsCampaignBehavior), "get__desiredTotalCompanionCount")]

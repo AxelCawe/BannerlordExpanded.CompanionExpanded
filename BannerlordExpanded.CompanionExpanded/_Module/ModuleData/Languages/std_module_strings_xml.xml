@@ -68,7 +68,7 @@
 		<string id="BE_CE_Settings_RequestChance_Desc" text="The chance of receiving a request per tier. If your clan tier is 3, the chance of receiving a request is 3x of the value your provided." />
 		
 		
-		<string id="BE_CE_Settings_Header_CompanionsInTown" text="Companions will roam on Town Center" />
+		<string id="BE_CE_Settings_Header_CompanionsInTown" text="Wanderers will roam on Town Center" />
 		
 		
 		<string id="BE_CE_Settings_CompanionToFamily_Header" text="Companion To Family Conversations" />

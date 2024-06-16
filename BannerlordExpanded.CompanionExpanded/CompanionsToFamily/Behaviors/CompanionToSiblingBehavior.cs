@@ -1,5 +1,4 @@
-﻿
-using BannerlordExpanded.CompanionExpanded.Helpers;
+﻿using BannerlordExpanded.CompanionExpanded.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace BannerlordExpanded.CompanionExpanded.Behavior
+namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
 {
     public class CompanionToSiblingBehavior : CampaignBehaviorBase
     {
@@ -36,7 +35,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behavior
             gameStarter.AddPlayerLine("BECE_Dialog_companiontosibling_2_no", "BECE_Dialog_companiontosibling_2", "lord_pretalk", "{=BECE_Dialog_CompanionToSibling_AreYouSureReplyNo}I will need to rethink about it.", null, null);
             gameStarter.AddDialogLine("BECE_Dialog_companiontosibling_3", "BECE_Dialog_companiontosibling_3", "lord_pretalk", "{=BECE_Dialog_CompanionToSibling_End}I will gladly join your family!", null, null);
 
-            
+
         }
 
         void ConvertCompanionToSibling()
@@ -46,7 +45,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behavior
                 targetHero.Father = Hero.MainHero.Father;
             if (Hero.MainHero.Mother != null)
                 targetHero.Mother = Hero.MainHero.Mother;
-            
+
             targetHero.SetNewOccupation(Occupation.Lord);
             RemoveCompanionAction.ApplyAfterQuest(Clan.PlayerClan, targetHero);
             targetHero.Clan = Clan.PlayerClan;

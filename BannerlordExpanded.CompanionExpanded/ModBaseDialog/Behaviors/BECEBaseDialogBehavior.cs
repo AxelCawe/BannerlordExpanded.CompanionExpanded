@@ -9,7 +9,7 @@ using TaleWorlds.CampaignSystem.Conversation;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace BannerlordExpanded.CompanionExpanded.Behavior
+namespace BannerlordExpanded.CompanionExpanded.ModBaseDialog.Behaviors
 {
     public class BECEBaseDialogBehavior : CampaignBehaviorBase
     {

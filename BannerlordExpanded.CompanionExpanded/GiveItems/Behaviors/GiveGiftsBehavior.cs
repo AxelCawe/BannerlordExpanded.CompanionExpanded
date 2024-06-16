@@ -1,5 +1,4 @@
-﻿
-using BannerlordExpanded.CompanionExpanded.Settings;
+﻿using BannerlordExpanded.CompanionExpanded.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace BannerlordExpanded.CompanionExpanded.Behavior
+namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
 {
     public class GiveGiftsBehavior : CampaignBehaviorBase
     {
@@ -32,7 +31,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behavior
         public override void SyncData(IDataStore dataStore)
         {
             //throw new NotImplementedException();
-            if (dataStore.IsSaving) 
+            if (dataStore.IsSaving)
             {
                 dataStore.SyncData("BECE_GiveGifts", ref _giftsCooldown);
             }
@@ -52,7 +51,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behavior
         }
 
         private bool TradeBarterSuccess()
-        { 
+        {
             bool success = Campaign.Current.BarterManager.LastBarterIsAccepted;
             if (success)
             {
@@ -81,10 +80,10 @@ namespace BannerlordExpanded.CompanionExpanded.Behavior
                 {
                     reply = new TextObject("{=BECE_Dialog_GiftCooldown}You just gave {HERO_NAME} a gift. You will need to wait for {COOLDOWN_DAYS} days before giving another gift!");
                     reply.SetTextVariable("HERO_NAME", targetHero.FirstName);
-                    reply.SetTextVariable("COOLDOWN_DAYS", TaleWorlds.Library.MathF.Ceiling(MCMSettings.Instance.giftCooldown - GiftsCooldown[targetHero].ElapsedDaysUntilNow).ToString());
+                    reply.SetTextVariable("COOLDOWN_DAYS", MathF.Ceiling(MCMSettings.Instance.giftCooldown - GiftsCooldown[targetHero].ElapsedDaysUntilNow).ToString());
                     return false;
                 }
-                
+
 
             }
             // We will return true if there is no data stored about that target hero. Since there is no history of this hero, we can assume the player has never interacted with the player

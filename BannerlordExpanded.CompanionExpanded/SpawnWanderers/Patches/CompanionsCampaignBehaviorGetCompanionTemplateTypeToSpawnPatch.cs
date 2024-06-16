@@ -16,14 +16,14 @@ using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.ObjectSystem;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
 {
     [HarmonyPatchCategory("CompanionSpawning")]
     [HarmonyPatch(typeof(CompanionsCampaignBehavior), "GetCompanionTemplateToSpawn")]
     public static class CompanionsCampaignBehaviorGetCompanionTemplateToSpawnPatch
-  
+
     {
-       
+
         static Random random = new Random();
 
         [HarmonyPostfix]
@@ -46,7 +46,7 @@ namespace BannerlordExpanded.CompanionExpanded.Patches
 
             }
 
-  
+
         }
     }
 }

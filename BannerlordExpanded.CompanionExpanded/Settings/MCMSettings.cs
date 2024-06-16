@@ -1,12 +1,7 @@
 ﻿using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
-using MCM.Abstractions.FluentBuilder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BannerlordExpanded.CompanionExpanded.Settings
 {
@@ -67,8 +62,8 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         public int chanceForARequestPerClanTier { get; set; } = 5;
 
         // Companions in Town
-        [SettingPropertyBool("{=BE_CE_Settings_Header_CompanionsInTown}Companions will roam on Town Center", IsToggle = true, RequireRestart = true)]
-        [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionsInTown}Companions will roam on Town Center", GroupOrder = 3)]
+        [SettingPropertyBool("{=BE_CE_Settings_Header_CompanionsInTown}Wanderers will roam on Town Center", IsToggle = true, RequireRestart = true)]
+        [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionsInTown}Wanderers will roam on Town Center", GroupOrder = 3)]
         public bool CompanionsInTown { get; set; } = true;
 
         // Companion To Sibling Relationships
@@ -84,6 +79,6 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         [SettingPropertyBool("{=BE_CE_Settings_DisownSon}Enable Disown Children Conversation", RequireRestart = true)]
         public bool DisownChildrenActive { get; set; } = true;
 
-     
+
     }
 }

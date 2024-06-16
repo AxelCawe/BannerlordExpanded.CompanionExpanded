@@ -12,7 +12,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace BannerlordExpanded.CompanionExpanded.Behaviors
+namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
 {
     public class CompanionToFamilyBehavior : CampaignBehaviorBase
     {
@@ -35,7 +35,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
             gameStarter.AddPlayerLine("BECE_Dialog_companiontofamily_2_no", "BECE_Dialog_companiontofamily_2", "lord_pretalk", "{=BECE_Dialog_CompanionToFamily_AreYouSureReplyNo}I will need to rethink about it.", null, null);
             gameStarter.AddDialogLine("BECE_Dialog_companiontofamily_3", "BECE_Dialog_companiontofamily_3", "lord_pretalk", "{=BECE_Dialog_CompanionToFamily_End}I will gladly join your family!", null, null);
 
-            
+
         }
 
         void ConvertCompanionToFamily()

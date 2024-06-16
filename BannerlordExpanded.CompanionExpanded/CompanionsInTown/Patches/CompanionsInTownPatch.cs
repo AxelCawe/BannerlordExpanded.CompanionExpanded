@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Locations;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.WanderersInTown.Patches
 {
     [HarmonyPatchCategory("CompanionInTown")]
     [HarmonyPatch(typeof(CommonTownsfolkCampaignBehavior), "AddPeopleToTownCenter")]

@@ -10,7 +10,7 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.GiveItems.Patches
 {
     [HarmonyPatchCategory("GiveGifts")]
     [HarmonyPatch(typeof(GiveItemAction), "ApplyInternal")]

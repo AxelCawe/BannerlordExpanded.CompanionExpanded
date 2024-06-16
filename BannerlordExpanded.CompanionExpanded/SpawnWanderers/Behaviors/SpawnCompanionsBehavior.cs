@@ -18,14 +18,14 @@ using System.Reflection;
 using BannerlordExpanded.CompanionExpanded.Settings;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
-namespace BannerlordExpanded.CompanionExpanded.Behaviors
+namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
 {
     internal class SpawnCompanionsBehavior : CampaignBehaviorBase
     {
         public SpawnCompanionsBehavior()
         {
-            GlobalSettings<MCMSettings>.Instance.RefreshWanderers = this.RefreshCompanions;
-            GlobalSettings<MCMSettings>.Instance.Cleanup = this.CleanUpDeadCompanions;
+            GlobalSettings<MCMSettings>.Instance.RefreshWanderers = RefreshCompanions;
+            GlobalSettings<MCMSettings>.Instance.Cleanup = CleanUpDeadCompanions;
         }
 
         public override void RegisterEvents()
@@ -48,10 +48,10 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
             //InformationManager.DisplayMessage(new InformationMessage("Attempting cleanup"));
             foreach (Hero hero in Hero.DeadOrDisabledHeroes.ToList<Hero>())
             {
-                if ((hero.Children == null || hero.Children.Count == 0) && hero.IsDead && ((hero.IsHeadman)))
+                if ((hero.Children == null || hero.Children.Count == 0) && hero.IsDead && hero.IsHeadman)
                 {
                     //InformationManager.DisplayMessage(new InformationMessage("Removing " + hero.Name + " from game."));
-                    typeof(CampaignObjectManager).GetMethod("UnregisterDeadHero", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(Campaign.Current.CampaignObjectManager, new object[] {hero});
+                    typeof(CampaignObjectManager).GetMethod("UnregisterDeadHero", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(Campaign.Current.CampaignObjectManager, new object[] { hero });
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
                 if (targetLocation == null)
                     continue;
                 //InformationManager.DisplayMessage(new InformationMessage("Found tavern"));
-                var allWanderers = Enumerable.Where<Hero>(townElement.Settlement.HeroesWithoutParty, (Hero x) => x.IsWanderer && x.CompanionOf == null).ToList();
+                var allWanderers = townElement.Settlement.HeroesWithoutParty.Where<Hero>((x) => x.IsWanderer && x.CompanionOf == null).ToList();
                 foreach (Hero heroElement in allWanderers)
                 {
                     LeaveSettlementAction.ApplyForCharacterOnly(heroElement);
@@ -79,14 +79,14 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
 
             CleanUpDeadCompanions();
             CompanionsCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<CompanionsCampaignBehavior>();
-            int companions = (int)((float)(typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(behavior, null)));
+            int companions = (int)(float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             for (int i = 0; i < companions; ++i)
             {
-                typeof(CompanionsCampaignBehavior).GetMethod("TrySpawnNewCompanion", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(behavior, null);
+                typeof(CompanionsCampaignBehavior).GetMethod("TrySpawnNewCompanion", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             }
-            typeof(CompanionsCampaignBehavior).GetMethod("SwapCompanions", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(behavior, null);
+            typeof(CompanionsCampaignBehavior).GetMethod("SwapCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
         }
 
-      
+
     }
 }

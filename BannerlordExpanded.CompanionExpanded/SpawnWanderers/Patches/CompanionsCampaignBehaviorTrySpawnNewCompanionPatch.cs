@@ -13,7 +13,7 @@ using BannerlordExpanded.CompanionExpanded.Settings;
 using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
 {
     [HarmonyPatchCategory("CompanionSpawning")]
     [HarmonyPatch(typeof(CompanionsCampaignBehavior), "TrySpawnNewCompanion")]
@@ -23,10 +23,10 @@ namespace BannerlordExpanded.CompanionExpanded.Patches
         static void Postfix(CompanionsCampaignBehavior __instance)
         {
             MBReadOnlyList<Town> allTowns = Town.AllTowns;
-            int aimCompanionsPerTown = (int)((float)(typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null)) / allTowns.Count);
+            int aimCompanionsPerTown = (int)((float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null) / allTowns.Count);
             foreach (Town town in allTowns)
             {
-                int wanderers = Enumerable.Where<Hero>(town.Settlement.HeroesWithoutParty, (Hero x) => x.IsWanderer && x.CompanionOf == null).ToList().Count();
+                int wanderers = town.Settlement.HeroesWithoutParty.Where<Hero>((x) => x.IsWanderer && x.CompanionOf == null).ToList().Count();
                 for (int i = 0; i < aimCompanionsPerTown - wanderers; ++i)
                 {
                     typeof(CompanionsCampaignBehavior).GetMethod("CreateCompanionAndAddToSettlement", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { town.Settlement });

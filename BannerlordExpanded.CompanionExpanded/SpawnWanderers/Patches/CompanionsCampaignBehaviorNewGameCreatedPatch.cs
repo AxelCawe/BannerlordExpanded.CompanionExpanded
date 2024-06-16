@@ -14,7 +14,7 @@ using TaleWorlds.Core;
 using TaleWorlds.LinQuick;
 using TaleWorlds.Library;
 
-namespace BannerlordExpanded.CompanionExpanded.Patches
+namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
 {
     [HarmonyPatchCategory("CompanionSpawning")]
     [HarmonyPatch(typeof(CompanionsCampaignBehavior), "OnNewGameCreated")]
@@ -24,19 +24,19 @@ namespace BannerlordExpanded.CompanionExpanded.Patches
         static bool Prefix(CompanionsCampaignBehavior __instance)
         {
             typeof(CompanionsCampaignBehavior).GetMethod("InitializeCompanionTemplateList", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null);
-            List<Town> list = Town.AllTowns.ToListQ<Town>();
-            list.Shuffle<Town>();
-            float desiredTotalCompanionCount = (float)(typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null));
+            List<Town> list = Town.AllTowns.ToListQ();
+            list.Shuffle();
+            float desiredTotalCompanionCount = (float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null);
             int companionsPerSettlement = (int)(desiredTotalCompanionCount / list.Count);
-            
-            foreach (Town town in list) 
+
+            foreach (Town town in list)
             {
                 for (int i = 0; i < companionsPerSettlement; ++i)
                 {
                     typeof(CompanionsCampaignBehavior).GetMethod("CreateCompanionAndAddToSettlement", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { town.Settlement });
                     //InformationManager.DisplayMessage(new InformationMessage($"Added{desiredTotalCompanionCount}/{companionsPerSettlement}"));
                 }
-                
+
             }
             return false;
         }

@@ -1,5 +1,4 @@
-﻿
-using BannerlordExpanded.CompanionExpanded.Helpers;
+﻿using BannerlordExpanded.CompanionExpanded.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Encyclopedia;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 
-namespace BannerlordExpanded.CompanionExpanded.Behaviors
+namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
 {
     internal class DisownChildToCompanionBehavior : CampaignBehaviorBase
     {
