@@ -1,7 +1,9 @@
-﻿using BannerlordExpanded.CompanionExpanded.Behavior;
-using BannerlordExpanded.CompanionExpanded.Behaviors;
-using BannerlordExpanded.CompanionExpanded.Patches;
+﻿using BannerlordExpanded.CompanionExpanded.CompanionsRequestToJoin.Behaviors;
+using BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors;
+using BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors;
+using BannerlordExpanded.CompanionExpanded.ModBaseDialog.Behaviors;
 using BannerlordExpanded.CompanionExpanded.Settings;
+using BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors;
 using HarmonyLib;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
@@ -34,6 +36,8 @@ namespace BannerlordExpanded.CompanionExpanded
                 harmony.PatchCategory(Assembly.GetExecutingAssembly(), "GiveGifts");
             if (MCMSettings.Instance.CompanionsInTown)
                 harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionInTown");
+            if (MCMSettings.Instance.MoreFollowersActive)
+                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "MoreFollowers");
             harmony.PatchAllUncategorized(Assembly.GetExecutingAssembly());
         }
 
@@ -50,13 +54,13 @@ namespace BannerlordExpanded.CompanionExpanded
             {
                 if (MCMSettings.Instance.CompanionSpawningActive)
                     gameStarter.AddBehavior(new SpawnCompanionsBehavior());
-                
+
                 gameStarter.AddBehavior(new BECEBaseDialogBehavior());
                 if (MCMSettings.Instance.WandererRequestToJoin)
                     gameStarter.AddBehavior(new CompanionRequestToJoinBehavior());
                 if (MCMSettings.Instance.CompanionToChildActive)
                     gameStarter.AddBehavior(new CompanionToFamilyBehavior());
-                if (MCMSettings.Instance.CompanionToSiblingActive)    
+                if (MCMSettings.Instance.CompanionToSiblingActive)
                     gameStarter.AddBehavior(new CompanionToSiblingBehavior());
                 if (MCMSettings.Instance.DisownChildrenActive)
                     gameStarter.AddBehavior(new DisownChildToCompanionBehavior());

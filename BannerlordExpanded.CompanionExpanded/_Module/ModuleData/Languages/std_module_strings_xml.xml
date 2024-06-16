@@ -74,6 +74,10 @@
 		<string id="BE_CE_Settings_CompanionToFamily_Header" text="Companion To Family Conversations" />
 		<string id="BE_CE_Settings_CompanionToChild" text="Enable Companion To Son/Daughter Conversation" />
 		<string id="BE_CE_Settings_CompanionToSibling" text="Enable Companion To Sibling Conversation" />
-		<string id="BE_CE_Settings_DisownSon" text="Enable Disown Children Conversation" />
+		<string id="BE_CE_Settings_DisownSon" text="Enable Disown Children Conversation" />		
+		
+		<string id="BE_CE_Settings_MoreFollowers_Header" text="More Followers" />
+		<string id="BE_CE_Settings_MoreFollowers_NumOfFollowers" text="Number of Followers" />
+		<string id="BE_CE_Settings_MoreFollowers_NumOfFollowersDesc" text="Number of family members and companions that will follow you whenever you visit settlements." />
 	</strings>
 </base>

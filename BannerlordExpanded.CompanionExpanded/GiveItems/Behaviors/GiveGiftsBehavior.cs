@@ -1,15 +1,9 @@
 ﻿using BannerlordExpanded.CompanionExpanded.Settings;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.BarterSystem;
 using TaleWorlds.CampaignSystem.BarterSystem.Barterables;
-using TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors;
 using TaleWorlds.CampaignSystem.Conversation;
-using TaleWorlds.CampaignSystem.GameMenus;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
@@ -71,7 +65,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
                 _giftsCooldown = new Dictionary<Hero, CampaignTime>();
             if (GiftsCooldown.ContainsKey(targetHero))
             {
-                if (GiftsCooldown[targetHero].ElapsedDaysUntilNow >= MCMSettings.Instance.giftCooldown)
+                if (GiftsCooldown[targetHero].ElapsedDaysUntilNow >= MCMSettings.Instance.GiftCooldown)
                 {
                     reply = new TextObject();
                     return true;
@@ -80,7 +74,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
                 {
                     reply = new TextObject("{=BECE_Dialog_GiftCooldown}You just gave {HERO_NAME} a gift. You will need to wait for {COOLDOWN_DAYS} days before giving another gift!");
                     reply.SetTextVariable("HERO_NAME", targetHero.FirstName);
-                    reply.SetTextVariable("COOLDOWN_DAYS", MathF.Ceiling(MCMSettings.Instance.giftCooldown - GiftsCooldown[targetHero].ElapsedDaysUntilNow).ToString());
+                    reply.SetTextVariable("COOLDOWN_DAYS", TaleWorlds.Library.MathF.Ceiling(MCMSettings.Instance.GiftCooldown - GiftsCooldown[targetHero].ElapsedDaysUntilNow).ToString());
                     return false;
                 }
 

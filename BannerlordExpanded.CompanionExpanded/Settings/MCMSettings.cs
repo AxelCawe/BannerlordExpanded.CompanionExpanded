@@ -47,7 +47,7 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
 
         [SettingPropertyInteger("{=BE_CE_Settings_GiftCooldown}Gift Cooldown (Days)", minValue: 1, maxValue: 30, valueFormat: "0 days", Order = 1, HintText = "{=BE_CE_Settings_GiftCooldown_Desc}The minimum time interval (days) before you can give another gift to the same person.", RequireRestart = false)]
         [SettingPropertyGroup("{=BE_CE_Settings_Header_Gift}Give Gifts", GroupOrder = 1)]
-        public int giftCooldown { get; set; } = 7;
+        public int GiftCooldown { get; set; } = 7;
 
         // Wanderer requests to join
         [SettingPropertyGroup("{=BE_CE_Settings_Header_Request}Wanderer Join Request", GroupOrder = 2)]
@@ -56,10 +56,10 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
 
         [SettingPropertyInteger("{=BE_CE_Settings_RequestInterval}Wanderer Request Cooldown (Days)", minValue: 0, maxValue: 30, valueFormat: "0 days", Order = 1, HintText = "{=BE_CE_Settings_RequestInterval_Desc}The minimum time interval (days) before you can receive another request for a clan member to join.", RequireRestart = false)]
         [SettingPropertyGroup("{=BE_CE_Settings_Header_Request}Wanderer Join Request", GroupOrder = 2)]
-        public int requestInterval { get; set; } = 1;
+        public int RequestInterval { get; set; } = 1;
         [SettingPropertyInteger("{=BE_CE_Settings_RequestChance}Chance of Wanderer Request per Clan Tier", minValue: 0, maxValue: 100, valueFormat: "0 percent", Order = 2, HintText = "{=BE_CE_Settings_RequestChance_Desc}The chance of receiving a request per tier. If your clan tier is 3, the chance of receiving a request is 3x of the value your provided.", RequireRestart = false)]
         [SettingPropertyGroup("{=BE_CE_Settings_Header_Request}Wanderer Join Request", GroupOrder = 2)]
-        public int chanceForARequestPerClanTier { get; set; } = 5;
+        public int ChanceForARequestPerClanTier { get; set; } = 5;
 
         // Companions in Town
         [SettingPropertyBool("{=BE_CE_Settings_Header_CompanionsInTown}Wanderers will roam on Town Center", IsToggle = true, RequireRestart = true)]
@@ -79,6 +79,13 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         [SettingPropertyBool("{=BE_CE_Settings_DisownSon}Enable Disown Children Conversation", RequireRestart = true)]
         public bool DisownChildrenActive { get; set; } = true;
 
+        // More Followers
+        [SettingPropertyGroup("{=BE_CE_Settings_MoreFollowers_Header}More Followers", GroupOrder = 5)]
+        [SettingPropertyBool("{=BE_CE_Settings_CompanionToSibling}Enable More Followers Module", RequireRestart = true)]
+        public bool MoreFollowersActive { get; set; } = true;
+        [SettingPropertyGroup("{=BE_CE_Settings_MoreFollowers_Header}More Followers", GroupOrder = 5)]
+        [SettingPropertyInteger("{=BE_CE_Settings_MoreFollowers_NumOfFollowers}Number of Followers", 1, 1000, HintText = "{=BE_CE_Settings_MoreFollowers_NumOfFollowersDesc}Number of family members & companions that will follow you whenever you visit settlements.", RequireRestart = false)]
+        public int NumberOfFollowers { get; set; } = 3;
 
     }
 }

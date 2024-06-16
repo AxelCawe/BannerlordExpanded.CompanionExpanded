@@ -9,7 +9,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace BannerlordExpanded.CompanionExpanded.Behaviors
+namespace BannerlordExpanded.CompanionExpanded.CompanionsRequestToJoin.Behaviors
 {
     public class CompanionRequestToJoinBehavior : CampaignBehaviorBase
     {
@@ -62,7 +62,7 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
 
         void RequestAccepted()
         {
-            var allWanderers = Enumerable.Where(Settlement.CurrentSettlement.HeroesWithoutParty, (Hero x) => x.IsWanderer && x.CompanionOf == null).ToList();
+            var allWanderers = Settlement.CurrentSettlement.HeroesWithoutParty.Where((x) => x.IsWanderer && x.CompanionOf == null).ToList();
             Hero randomHero = allWanderers[new Random().Next(0, allWanderers.Count)];
             CampaignMapConversation.OpenConversation(new ConversationCharacterData(Hero.MainHero.CharacterObject), new ConversationCharacterData(randomHero.CharacterObject));
         }
@@ -71,14 +71,14 @@ namespace BannerlordExpanded.CompanionExpanded.Behaviors
         {
             if (Settlement.CurrentSettlement == null)
                 return false;
-            var allWanderers = Enumerable.Where(Settlement.CurrentSettlement.HeroesWithoutParty, (Hero x) => x.IsWanderer && x.CompanionOf == null).ToList();
+            var allWanderers = Settlement.CurrentSettlement.HeroesWithoutParty.Where((x) => x.IsWanderer && x.CompanionOf == null).ToList();
             if (allWanderers.Count == 0)
                 return false;
             if (GameStateManager.Current == null)
                 return false;
-            if (_lastAsked.ElapsedDaysUntilNow >= MCMSettings.Instance.requestInterval)
+            if (_lastAsked.ElapsedDaysUntilNow >= MCMSettings.Instance.RequestInterval)
             {
-                int chance = MCMSettings.Instance.chanceForARequestPerClanTier * Clan.PlayerClan.Tier;
+                int chance = MCMSettings.Instance.ChanceForARequestPerClanTier * Clan.PlayerClan.Tier;
                 return new Random().Next(0, 100) <= chance;
             }
             else return false;
