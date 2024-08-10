@@ -87,5 +87,13 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         [SettingPropertyInteger("{=BE_CE_Settings_MoreFollowers_NumOfFollowers}Number of Followers", 1, 1000, HintText = "{=BE_CE_Settings_MoreFollowers_NumOfFollowersDesc}Number of family members & companions that will follow you whenever you visit settlements.", RequireRestart = false)]
         public int NumberOfFollowers { get; set; } = 3;
 
+
+        // Player Companion Limit
+        [SettingPropertyGroup("{=BE_CE_Settings_CompanionLimit_Header}Additional Companion Slots", GroupOrder = 6)]
+        [SettingPropertyBool("{=BE_CE_Settings_CompanionLimit_Header}Additional Companion Slots", IsToggle = true, RequireRestart = true)]
+        public bool AdditionalCompanionSlotsActive { get; set; } = true;
+        [SettingPropertyGroup("{=BE_CE_Settings_CompanionLimit_Header}Additional Companion Slots", GroupOrder = 6)]
+        [SettingPropertyInteger("{=BE_CE_Settings_CompanionLimit_AdditionalSlots}Extra Companion Slots Per Clan Tier", 1, 1000, HintText = "{=BE_CE_Settings_CompanionLimit_AdditionalSlotsDesc}Number of additional companion slots per clan tier.", RequireRestart = false)]
+        public int AdditionalCompanionsPerClanTier { get; set; } = 1;
     }
 }

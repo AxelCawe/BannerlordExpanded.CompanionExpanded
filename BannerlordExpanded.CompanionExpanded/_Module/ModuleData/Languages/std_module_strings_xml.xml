@@ -79,5 +79,10 @@
 		<string id="BE_CE_Settings_MoreFollowers_Header" text="More Followers" />
 		<string id="BE_CE_Settings_MoreFollowers_NumOfFollowers" text="Number of Followers" />
 		<string id="BE_CE_Settings_MoreFollowers_NumOfFollowersDesc" text="Number of family members and companions that will follow you whenever you visit settlements." />
+		
+		<string id="BE_CE_Settings_CompanionLimit_Header" text="Additional Companion Slots" />
+		<string id="BE_CE_Settings_CompanionLimit_AdditionalSlots" text="Extra Companion Slots Per Clan Tier" />
+		<string id="BE_CE_Settings_CompanionLimit_AdditionalSlotsDesc" text="Number of additional companion slots per clan tier." />
+		
 	</strings>
 </base>

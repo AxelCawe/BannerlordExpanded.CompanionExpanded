@@ -38,6 +38,8 @@ namespace BannerlordExpanded.CompanionExpanded
                 harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionInTown");
             if (MCMSettings.Instance.MoreFollowersActive)
                 harmony.PatchCategory(Assembly.GetExecutingAssembly(), "MoreFollowers");
+            if (MCMSettings.Instance.AdditionalCompanionSlotsActive)
+                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "AdditionalCompanionSlots");
             harmony.PatchAllUncategorized(Assembly.GetExecutingAssembly());
         }
 
