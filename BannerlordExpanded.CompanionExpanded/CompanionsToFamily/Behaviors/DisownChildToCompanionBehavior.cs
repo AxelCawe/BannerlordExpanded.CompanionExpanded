@@ -30,6 +30,7 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
         void DisownChildToCompanion()
         {
             Hero targetHero = Hero.OneToOneConversationHero;
+
             if (targetHero.Father != null)
             {
                 if (targetHero.Father.Children.Contains(targetHero))
@@ -42,6 +43,9 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
                     targetHero.Mother.Children.Remove(targetHero);
                 targetHero.Mother = null;
             }
+
+
+
             targetHero.SetNewOccupation(Occupation.Wanderer);
             //targetHero.CompanionOf = null;
             targetHero.Clan = null;
@@ -51,6 +55,8 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
 
         bool IsClanMemberAndRelatedChild()
         {
+
+
             if (CompanionsHelper.IsClanMemberAndFamily(Hero.OneToOneConversationHero))
             {
                 return Hero.MainHero.Children.Contains(Hero.OneToOneConversationHero);
