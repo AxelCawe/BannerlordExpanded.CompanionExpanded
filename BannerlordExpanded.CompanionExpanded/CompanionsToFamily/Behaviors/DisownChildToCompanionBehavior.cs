@@ -1,13 +1,6 @@
 ﻿using BannerlordExpanded.CompanionExpanded.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.Encyclopedia;
-using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 
 namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
 {
@@ -50,9 +43,10 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
                 targetHero.Mother = null;
             }
             targetHero.SetNewOccupation(Occupation.Wanderer);
+            //targetHero.CompanionOf = null;
             targetHero.Clan = null;
-            targetHero.CompanionOf = null;
             AddCompanionAction.Apply(Clan.PlayerClan, targetHero);
+            //typeof(Hero).GetField("_clan", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(targetHero, null);
         }
 
         bool IsClanMemberAndRelatedChild()
