@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BannerlordExpanded.CompanionExpanded.Settings;
+using MCM.Abstractions.Base.Global;
+using System;
 using System.Linq;
-
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Locations;
-using TaleWorlds.Core;
-using TaleWorlds.ObjectSystem;
-using TaleWorlds.LinQuick;
-using MCM.Abstractions.Base.Global;
 using TaleWorlds.Library;
-using Helpers;
-using System.Reflection;
-using BannerlordExpanded.CompanionExpanded.Settings;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
 namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
 {
@@ -40,7 +32,12 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
 
         private void WeeklyTick()
         {
-            CleanUpDeadCompanions();
+            if (MCMSettings.Instance.AutoRefreshWanderersEveryWeek)
+            {
+                RefreshCompanions();
+            }
+            else
+                CleanUpDeadCompanions();
         }
 
         public void CleanUpDeadCompanions()

@@ -26,9 +26,9 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
         public int maxCompanionsPerTown { get; set; } = 5;
 
-        //[SettingPropertyBool("{=BE_CE_Settings_refreshWeekly}Auto-refresh Wanderers weekly", Order = 2, HintText = "{=BE_CE_Settings_RefreshWeekly_Desc}Automatically deletes old wanderers and spawn new wanderers at the start of every week. May cause lag!",RequireRestart = false)]
-        //[SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
-        //public bool autoRefreshEveryWeek { get; set; } = false;
+        [SettingPropertyBool("{=BE_CE_Settings_refreshWeekly}Auto-refresh Wanderers weekly", Order = 2, HintText = "{=BE_CE_Settings_RefreshWeekly_Desc}Automatically deletes old wanderers and spawn new wanderers at the start of every week. May cause lag!", RequireRestart = false)]
+        [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
+        public bool AutoRefreshWanderersEveryWeek { get; set; } = false;
 
         [SettingPropertyButton("{=BE_CE_Settings_refresh}Refresh Wanderers", Content = "{=BE_CE_Settings_Refresh_ButtonContent}Press to refresh", Order = 3, RequireRestart = false, HintText = "{=BE_CE_Settings_Refresh_Desc}Removes all current wanderers and spawn new ones. MAY CAUSE TEMPORARY FREEZE, NO NEED TO WORRY! :D")]
         [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
