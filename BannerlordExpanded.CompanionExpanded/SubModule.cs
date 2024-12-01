@@ -47,6 +47,7 @@ namespace BannerlordExpanded.CompanionExpanded
                 if (MCMSettings.Instance.DisownChildrenActive)
                     harmony.PatchCategory(Assembly.GetExecutingAssembly(), "DisownChildToCompanion");
                 harmony.PatchAllUncategorized(Assembly.GetExecutingAssembly());
+                harmonyPatched = true;
             }
         }
 
