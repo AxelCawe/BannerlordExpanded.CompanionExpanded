@@ -15,6 +15,8 @@ namespace BannerlordExpanded.CompanionExpanded
 {
     public class SubModule : MBSubModuleBase
     {
+        bool harmonyPatched = false;
+
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
@@ -29,20 +31,23 @@ namespace BannerlordExpanded.CompanionExpanded
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
-            Harmony harmony = new Harmony("BannerlordExpanded.CompanionExpanded");
-            if (MCMSettings.Instance.CompanionSpawningActive)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionSpawning");
-            if (MCMSettings.Instance.GiveGiftsActive)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "GiveGifts");
-            if (MCMSettings.Instance.CompanionsInTown)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionInTown");
-            if (MCMSettings.Instance.MoreFollowersActive)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "MoreFollowers");
-            if (MCMSettings.Instance.AdditionalCompanionSlotsActive)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "AdditionalCompanionSlots");
-            if (MCMSettings.Instance.DisownChildrenActive)
-                harmony.PatchCategory(Assembly.GetExecutingAssembly(), "DisownChildToCompanion");
-            harmony.PatchAllUncategorized(Assembly.GetExecutingAssembly());
+            if (!harmonyPatched)
+            {
+                Harmony harmony = new Harmony("BannerlordExpanded.CompanionExpanded");
+                if (MCMSettings.Instance.CompanionSpawningActive)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionSpawning");
+                if (MCMSettings.Instance.GiveGiftsActive)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "GiveGifts");
+                if (MCMSettings.Instance.CompanionsInTown)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "CompanionInTown");
+                if (MCMSettings.Instance.MoreFollowersActive)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "MoreFollowers");
+                if (MCMSettings.Instance.AdditionalCompanionSlotsActive)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "AdditionalCompanionSlots");
+                if (MCMSettings.Instance.DisownChildrenActive)
+                    harmony.PatchCategory(Assembly.GetExecutingAssembly(), "DisownChildToCompanion");
+                harmony.PatchAllUncategorized(Assembly.GetExecutingAssembly());
+            }
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarter)
