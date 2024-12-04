@@ -17,7 +17,7 @@
 		<string id="BECE_Dialog_CompanionToFamily_AreYouSureReplyNo" text="I will need to rethink about it." />
 		<string id="BECE_Dialog_CompanionToFamily_End" text="I will gladly join your family!" />
 		
-		<string id="Announcement_MoreHeroInteraction_CompanionToFamily" text="{HERO_NAME} has been made a noble and is now part of your family!" />
+		<string id="BECE_Announcement_CompanionToFamily" text="{HERO_NAME} has been made a noble and is now part of your family!" />
 
 		<!-- Companion to family(brother/sister) -->
 		<string id="BECE_Dialog_CompanionToSibling_Start_male" text="You have done well to be worthy of my family's name. I want you to be my brother." />
@@ -27,7 +27,7 @@
 		<string id="BECE_Dialog_CompanionToSibling_AreYouSureReplyNo" text="I will need to rethink about it." />
 		<string id="BECE_Dialog_CompanionToSibling_End" text="I will gladly join your family!" />
 
-		<string id="Announcement_MoreHeroInteraction_CompanionToSibling" text="{HERO_NAME} has been made a noble and is now part of your family!" />
+		<string id="BECE_Dialog_CompanionToSibling" text="{HERO_NAME} has been made a noble and is now part of your family!" />
 		
 		<!-- Disown Children -->
 		<string id="BECE_Dialog_DisownChildToCompanion_Start" text="You are no longer worthy of the family's name!" />
