@@ -1,19 +1,10 @@
-﻿using HarmonyLib;
-using SandBox.CampaignBehaviors;
+﻿using BannerlordExpanded.CompanionExpanded.Settings;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
-using TaleWorlds.CampaignSystem.Settlements.Locations;
-using TaleWorlds.CampaignSystem.Settlements;
-using BannerlordExpanded.CompanionExpanded.Settings;
-using TaleWorlds.Core;
-using TaleWorlds.LinQuick;
-using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.Library;
 using TaleWorlds.ObjectSystem;
 
 namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
@@ -29,7 +20,7 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
         [HarmonyPostfix]
         static void Postfix(CompanionsCampaignBehavior __instance, ref CharacterObject __result)
         {
-            if (__result == null)
+            if (__result == null && !MCMSettings.Instance.UniqueWandererSpawning)
             {
                 List<CharacterObject> allCompanionTemplates = new List<CharacterObject>();
                 foreach (CultureObject cultureObject in MBObjectManager.Instance.GetObjectTypeList<CultureObject>())

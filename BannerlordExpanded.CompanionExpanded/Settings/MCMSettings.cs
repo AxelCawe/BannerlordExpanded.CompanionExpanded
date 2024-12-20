@@ -30,6 +30,11 @@ namespace BannerlordExpanded.CompanionExpanded.Settings
         [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
         public bool AutoRefreshWanderersEveryWeek { get; set; } = false;
 
+        [SettingPropertyBool("{=BE_CE_Settings_UniqueWanderers}Unique Wanderers", Order = 2, HintText = "{=BE_CE_Settings_UniqueWanderers_Desc}If enabled, ensures that no wanderers of the same type will be generated (unique wanderers). Lesser wanderers around the map will be generated.", RequireRestart = false)]
+        [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
+        public bool UniqueWandererSpawning { get; set; } = false;
+
+
         [SettingPropertyButton("{=BE_CE_Settings_refresh}Refresh Wanderers", Content = "{=BE_CE_Settings_Refresh_ButtonContent}Press to refresh", Order = 3, RequireRestart = false, HintText = "{=BE_CE_Settings_Refresh_Desc}Removes all current wanderers and spawn new ones. MAY CAUSE TEMPORARY FREEZE, NO NEED TO WORRY! :D")]
         [SettingPropertyGroup("{=BE_CE_Settings_Header_CompanionSpawning}Companion Spawning", GroupOrder = 0)]
         public Action RefreshWanderers { get; set; }

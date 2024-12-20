@@ -49,6 +49,8 @@
 		<string id="BE_CE_Settings_maxCompanions_Desc" text="The maximum number of wanderers that can be in a town at once. Expect lag/temporary freezes if you set a high number." />
 		<string id="BE_CE_Settings_refreshWeekly" text="Auto-refresh Wanderers weekly" />
 		<string id="BE_CE_Settings_RefreshWeekly_Desc" text="Automatically deletes old wanderers and spawn new wanderers at the start of every week. Will cause freezes every in-game week!" />
+		<string id="BE_CE_Settings_UniqueWanderers" text="Unique Wanderers" />
+		<string id="BE_CE_Settings_UniqueWanderers_Desc" text="If enabled, ensures that no wanderers of the same type will be generated (unique wanderers). Lesser wanderers around the map will be generated." />
 		<string id="BE_CE_Settings_refresh" text="Refresh Wanderers" />
 		<string id="BE_CE_Settings_Refresh_ButtonContent" text="Press to refresh" />
 		<string id="BE_CE_Settings_Refresh_Desc" text="Removes all current unhired wanderers and spawn new ones. MAY CAUSE TEMPORARY FREEZE, NO NEED TO WORRY! :D" />
