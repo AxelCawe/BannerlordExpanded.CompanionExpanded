@@ -1,17 +1,10 @@
 ﻿using HarmonyLib;
-using SandBox.CampaignBehaviors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
-using TaleWorlds.CampaignSystem.Settlements.Locations;
-using TaleWorlds.CampaignSystem.Settlements;
-using BannerlordExpanded.CompanionExpanded.Settings;
-using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
+using TaleWorlds.LinQuick;
 
 namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
 {
@@ -22,15 +15,28 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
         [HarmonyPostfix]
         static void Postfix(CompanionsCampaignBehavior __instance)
         {
-            MBReadOnlyList<Town> allTowns = Town.AllTowns;
-            int aimCompanionsPerTown = (int)((float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null) / allTowns.Count);
-            foreach (Town town in allTowns)
+            MBReadOnlyList<Town> list = Town.AllTowns;
+            int desiredTotalCompanionCount = (int)((float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, null));
+            int companionsPerSettlement = (int)(desiredTotalCompanionCount / list.Count);
+
+            for (int i = 0; i < desiredTotalCompanionCount; ++i)
             {
-                int wanderers = town.Settlement.HeroesWithoutParty.Where<Hero>((x) => x.IsWanderer && x.CompanionOf == null).ToList().Count();
-                for (int i = 0; i < aimCompanionsPerTown - wanderers; ++i)
+                list.Shuffle();
+                Town town = list[0];
+                int counter = 0;
+                while (town.Settlement.HeroesWithoutParty.WhereQ<Hero>((x) => x.IsWanderer && x.CompanionOf == null).ToListQ().Count >= companionsPerSettlement)
                 {
-                    typeof(CompanionsCampaignBehavior).GetMethod("CreateCompanionAndAddToSettlement", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { town.Settlement });
+                    if (counter > 10000)
+                    {
+                        return;
+                    }
+
+                    ++counter;
+                    list.Shuffle();
+                    town = list[0];
                 }
+
+                typeof(CompanionsCampaignBehavior).GetMethod("CreateCompanionAndAddToSettlement", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { town.Settlement });
             }
         }
     }

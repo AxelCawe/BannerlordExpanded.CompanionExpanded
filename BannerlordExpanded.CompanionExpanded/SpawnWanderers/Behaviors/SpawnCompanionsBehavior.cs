@@ -55,10 +55,10 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
 
         public void RefreshCompanions()
         {
+            CompanionsCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<CompanionsCampaignBehavior>();
             InformationManager.DisplayMessage(new InformationMessage("[Bannerlord Expanded]: Companions Refreshed"));
             foreach (Town townElement in Town.AllTowns)
             {
-
                 Location targetLocation = townElement.Settlement.LocationComplex.GetLocationWithId("tavern");
                 if (targetLocation == null)
                     continue;
@@ -67,15 +67,16 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
                 foreach (Hero heroElement in allWanderers)
                 {
                     LeaveSettlementAction.ApplyForCharacterOnly(heroElement);
-                    heroElement.SetNewOccupation(Occupation.Headman);
+                    //heroElement.SetNewOccupation(Occupation.Headman);
                     heroElement.AddDeathMark(null, KillCharacterAction.KillCharacterActionDetail.Lost);
                     heroElement.ChangeState(Hero.CharacterStates.Dead);
+                    typeof(CompanionsCampaignBehavior).GetMethod("RemoveFromAliveCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, new object[] { heroElement });
                     //InformationManager.DisplayMessage(new InformationMessage($"Killed{heroElement.Name}"));
                 }
             }
 
             CleanUpDeadCompanions();
-            CompanionsCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<CompanionsCampaignBehavior>();
+
             int companions = (int)(float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             for (int i = 0; i < companions; ++i)
             {
