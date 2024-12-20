@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Version>0.0.1</Version>
@@ -37,12 +37,12 @@
     <PackageReference Include="Bannerlord.UIExtenderEx" Version="2.12.0" IncludeAssets="compile" />
     <PackageReference Include="Bannerlord.ButterLib" Version="2.9.18" IncludeAssets="compile" />
     <PackageReference Include="Bannerlord.MCM" Version="5.10.2" IncludeAssets="compile" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="1.2.11.45697" PrivateAssets="All" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="1.2.11.45697" PrivateAssets="All" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="1.2.11.45697" PrivateAssets="All" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="1.2.11.45697" PrivateAssets="All" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.CustomBattle" Version="1.2.11.45697" PrivateAssets="All" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.BirthAndDeath" Version="1.2.11.45697" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="1.2.12.54620" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="1.2.12.54620" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="1.2.12.54620" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="1.2.12.54620" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.CustomBattle" Version="1.2.12.54620" PrivateAssets="All" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.BirthAndDeath" Version="1.2.12.54620" PrivateAssets="All" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" PrivateAssets="all" IncludeAssets="compile" />
   </ItemGroup>
 
