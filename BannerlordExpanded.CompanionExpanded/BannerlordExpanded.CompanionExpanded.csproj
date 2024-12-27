@@ -25,6 +25,9 @@
     <BuildForWindowsStore>true</BuildForWindowsStore>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="CompanionCreator\Templates\Template_v1-2-12.cs" />
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -49,6 +52,11 @@
 
   <ItemGroup>
     <Folder Include="MoreFollowers\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="CompanionCreator\Templates\Template_v1-2-12.cs" />
   </ItemGroup>
 
 </Project>
