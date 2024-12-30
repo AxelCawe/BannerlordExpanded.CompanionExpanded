@@ -67,7 +67,7 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
                 foreach (Hero heroElement in allWanderers)
                 {
                     LeaveSettlementAction.ApplyForCharacterOnly(heroElement);
-                    //heroElement.SetNewOccupation(Occupation.Headman);
+                    heroElement.SetNewOccupation(Occupation.Headman);
                     heroElement.AddDeathMark(null, KillCharacterAction.KillCharacterActionDetail.Lost);
                     heroElement.ChangeState(Hero.CharacterStates.Dead);
                     typeof(CompanionsCampaignBehavior).GetMethod("RemoveFromAliveCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, new object[] { heroElement });
