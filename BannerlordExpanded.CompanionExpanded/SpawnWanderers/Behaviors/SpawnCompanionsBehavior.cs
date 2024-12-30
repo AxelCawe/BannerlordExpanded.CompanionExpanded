@@ -67,9 +67,9 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
                 foreach (Hero heroElement in allWanderers)
                 {
                     LeaveSettlementAction.ApplyForCharacterOnly(heroElement);
-                    heroElement.SetNewOccupation(Occupation.Headman);
                     heroElement.AddDeathMark(null, KillCharacterAction.KillCharacterActionDetail.Lost);
                     heroElement.ChangeState(Hero.CharacterStates.Dead);
+                    heroElement.SetNewOccupation(Occupation.Headman);
                     typeof(CompanionsCampaignBehavior).GetMethod("RemoveFromAliveCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, new object[] { heroElement });
                     //InformationManager.DisplayMessage(new InformationMessage($"Killed{heroElement.Name}"));
                 }
@@ -80,6 +80,7 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
             int companions = (int)(float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             for (int i = 0; i < companions; ++i)
             {
+                InformationManager.DisplayMessage(new InformationMessage("Deleting..."));
                 typeof(CompanionsCampaignBehavior).GetMethod("TrySpawnNewCompanion", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             }
             typeof(CompanionsCampaignBehavior).GetMethod("SwapCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
