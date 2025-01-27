@@ -63,7 +63,7 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
                 if (targetLocation == null)
                     continue;
                 //InformationManager.DisplayMessage(new InformationMessage("Found tavern"));
-                var allWanderers = townElement.Settlement.HeroesWithoutParty.Where<Hero>((x) => x.IsWanderer && x.CompanionOf == null).ToList();
+                var allWanderers = townElement.Settlement.HeroesWithoutParty.Where<Hero>((x) => x.IsWanderer && x.CompanionOf == null && x.Clan == null).ToList();
                 foreach (Hero heroElement in allWanderers)
                 {
                     LeaveSettlementAction.ApplyForCharacterOnly(heroElement);
@@ -80,7 +80,6 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Behaviors
             int companions = (int)(float)typeof(CompanionsCampaignBehavior).GetMethod("get__desiredTotalCompanionCount", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             for (int i = 0; i < companions; ++i)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Deleting..."));
                 typeof(CompanionsCampaignBehavior).GetMethod("TrySpawnNewCompanion", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
             }
             typeof(CompanionsCampaignBehavior).GetMethod("SwapCompanions", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(behavior, null);
