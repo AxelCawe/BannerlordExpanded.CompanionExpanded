@@ -13,7 +13,7 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsRequestToJoin.Behaviors
 {
     public class CompanionRequestToJoinBehavior : CampaignBehaviorBase
     {
-        CampaignTime _lastAsked = CampaignTime.Now;
+        CampaignTime _lastAsked = CampaignTime.Zero;
 
         bool _menuOpened = false;
 

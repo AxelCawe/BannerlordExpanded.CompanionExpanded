@@ -67,7 +67,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
             {
                 if (GiftsCooldown[targetHero].ElapsedDaysUntilNow >= MCMSettings.Instance.GiftCooldown)
                 {
-                    reply = new TextObject();
+                    reply = new TextObject("");
                     return true;
                 }
                 else
@@ -81,7 +81,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
 
             }
             // We will return true if there is no data stored about that target hero. Since there is no history of this hero, we can assume the player has never interacted with the player
-            reply = new TextObject();
+            reply = new TextObject("");
             return true;
         }
 
@@ -109,7 +109,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
             BarterData args = new BarterData(mainHero, oneToOneConversationHero, mainParty, null);
             args.AddBarterGroup(new ItemBarterGroup());
             {
-                Settlement closestSettlement = GetClosestSettlements(PartyBase.MainParty.Position2D);
+                Settlement closestSettlement = GetClosestSettlements(PartyBase.MainParty.Position);
                 for (int i = 0; i < PartyBase.MainParty.ItemRoster.Count; i++)
                 {
                     ItemRosterElement elementCopyAtIndex = PartyBase.MainParty.ItemRoster.GetElementCopyAtIndex(i);
@@ -125,7 +125,7 @@ namespace BannerlordExpanded.CompanionExpanded.GiveItems.Behaviors
             instance.BeginPlayerBarter(args);
         }
 
-        private Settlement GetClosestSettlements(Vec2 position)
+        private Settlement GetClosestSettlements(CampaignVec2 position)
         {
             float smallestDistance = float.MaxValue;
             Settlement closestSettlement = null;

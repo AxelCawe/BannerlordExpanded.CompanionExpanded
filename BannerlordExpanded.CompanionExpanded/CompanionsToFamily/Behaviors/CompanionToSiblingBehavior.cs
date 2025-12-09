@@ -1,15 +1,8 @@
 ﻿using BannerlordExpanded.CompanionExpanded.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.Encyclopedia;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
@@ -52,7 +45,7 @@ namespace BannerlordExpanded.CompanionExpanded.CompanionsToFamily.Behaviors
             MobileParty.MainParty.AddElementToMemberRoster(targetHero.CharacterObject, 1);
             TextObject announcement = new TextObject("{=BECE_Announcement_CompanionToSibling}{HERO_NAME} has been made a noble and is now part of your family!");
             announcement.SetTextVariable("HERO_NAME", Hero.OneToOneConversationHero.Name);
-            MBInformationManager.AddQuickInformation(announcement, 0, null, "event:/ui/notification/relation");
+            MBInformationManager.AddQuickInformation(announcement, 0, null, null, "event:/ui/notification/relation");
         }
 
 

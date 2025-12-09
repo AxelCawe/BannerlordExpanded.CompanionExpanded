@@ -25,7 +25,7 @@ namespace BannerlordExpanded.CompanionExpanded.SpawnWanderers.Patches
                 List<CharacterObject> allCompanionTemplates = new List<CharacterObject>();
                 foreach (CultureObject cultureObject in MBObjectManager.Instance.GetObjectTypeList<CultureObject>())
                 {
-                    foreach (CharacterObject characterObject in cultureObject.NotableAndWandererTemplates)
+                    foreach (CharacterObject characterObject in MBObjectManager.Instance.GetObjectTypeList<CharacterObject>())
                     {
                         if (characterObject.Occupation == Occupation.Wanderer)
                             allCompanionTemplates.Add(characterObject);
