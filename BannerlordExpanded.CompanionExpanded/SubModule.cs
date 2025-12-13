@@ -31,7 +31,6 @@ namespace BannerlordExpanded.CompanionExpanded
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
-            Harmony.DEBUG = true;
             if (!harmonyPatched)
             {
                 Harmony harmony = new Harmony("BannerlordExpanded.CompanionExpanded");
